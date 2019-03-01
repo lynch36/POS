@@ -48,17 +48,6 @@
 
 			</li>
 
-			<li>
-
-				<a href="clientes">
-
-					<i class="fa fa-users"></i>
-					<span>Clientes</span>
-
-				</a>
-
-			</li>
-
 			<li class="treeview">
 
 				<a href="#">
