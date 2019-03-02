@@ -44,11 +44,11 @@
            <th>Nombre</th>
            <th>Categoria</th>
            <th>Codigo</th>
-           <th>Cantidad</th>
+           <th>Stock</th>
            <th>Precio Compra</th>
            <th>Precio Venta</th>
-           <th>Utilidad</th>
-           <th>Agregado</th>
+           <th>Proovedor</th>
+           <th>Fecha Agregado</th>
            <th>Acciones</th>
 
          </tr> 

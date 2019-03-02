@@ -54,7 +54,7 @@
 
 					<i class="fa fa-list-ul"></i>
 					
-					<span>Ventas</span>
+					<span>Salidas</span>
 					
 					<span class="pull-right-container">
 					
@@ -68,10 +68,10 @@
 					
 					<li>
 
-						<a href="ventas">
+						<a href="salidas">
 							
 							<i class="fa fa-circle-o"></i>
-							<span>Administrar ventas</span>
+							<span>Administrar Salida</span>
 
 						</a>
 
@@ -79,10 +79,10 @@
 
 					<li>
 
-						<a href="crear-venta">
+						<a href="crear-salida">
 							
 							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
+							<span>Crear Salida</span>
 
 						</a>
 
@@ -93,7 +93,7 @@
 						<a href="reportes">
 							
 							<i class="fa fa-circle-o"></i>
-							<span>Reporte de ventas</span>
+							<span>Reporte de Salidas</span>
 
 						</a>
 
