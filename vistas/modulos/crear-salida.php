@@ -28,7 +28,7 @@
         
           <div class="box-header with-border"></div>
           
-          <form role="form" method="post">
+          <form role="form" method="post" class="formularioSalida">
           
             <div class="box-body">
             
@@ -40,7 +40,11 @@
                   <div class="input-group">
                   
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" id="nuevoUsuario" name="nuevoUsuario" value="admin" readonly>
+
+                    <input type="text" class="form-control" id="nuevoUsuario" 
+                    value="<?php echo $_SESSION["nombre"]; ?>" readonly>
+
+                    <input type="hidden" name="idUsuario" value="<?php echo $_SESSION["id"]; ?>">
                   
                   </div>
                 
@@ -52,7 +56,30 @@
                   <div class="input-group">
                   
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="text" class="form-control" id="nuevaSalida" name="nuevaSalida" value="1000123" readonly>
+
+                    <?php  
+                    
+                      $item = null;
+                      $valor = null;
+
+                      $salidas = ControladorSalidas::ctrMostrarSalidas($item, $valor);
+
+                      if(!$salidas){
+
+                        echo '<input type="text" class="form-control" id="nuevaSalida" name="nuevaSalida" value="10001" readonly>';
+
+                      }
+                      else{
+                        foreach ($ventas as $key => $value) {
+                          
+                        }
+
+                        $codigo = $value["codigo"] + 1;
+
+                        echo '<input type="text" class="form-control" id="nuevaSalida" name="nuevaSalida" value="'.$codigo.'" readonly>';
+                      }
+                    
+                    ?>
                   
                   </div>
                 
@@ -66,8 +93,8 @@
                     <span class="input-group-addon"><i class="fa fa-th"></i></span>
                     <select class="form-control" name="motivoSalida" id="motivoSalida" required>
                       <option value="">Seleccionar Motivo de Salida</option>
-                      <option value="0">Venta</option>
-                      <option value="1">Merma</option>
+                      <option value="Venta">Venta</option>
+                      <option value="Merma">Merma</option>
                     </select>
                   
                   </div>
@@ -76,42 +103,13 @@
                 
                 <div class="form-group row nuevoProducto">
                 
-                  <div class="col-xs-6" style="padding-right:0px">
-                    
-                    <div class="input-group">
-                    
-                      <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs">
-                      <i class="fa fa-times"></i></button></span>
-                      <input type="text" class="form-control" id="agregarProducto" name="agregarProducto" style="float: none" placeholder="Nombre del Producto" required>
-                    
-                    </div>
                   
-                  
-                  </div>
-
-                  <div class="col-xs-3">
-                  
-                    <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" placeholder="0"
-                    min="1" required>
-                  
-                  </div>
-
-                  <div class="col-xs-3" style="padding-left:0px">
-                  
-                    <div class="input-group">
-                    
-                      <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-                      
-                      <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" placeholder="000000" min="1" readonly required>
-
-                    
-                    </div>
-                  
-                  </div>
                 
                 </div>
 
-                <button type="button" class="btn btn-primary hidden-lg">Agregar Producto</button>
+                <input type="hidden" id="listaProductos" name="listaProductos">
+
+                <button type="button" class="btn btn-primary hidden-lg btnAgregarProducto">Agregar Producto</button>
                 <hr>
 
                 <div class="row">
@@ -140,7 +138,9 @@
                             
                               <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
                               
-                              <input type="number" min="1" class="form-control" id="nuevoTotalSalida" name="nuevoTotalSalida" placeholder="00000" readonly required>
+                              <input type="text" class="form-control input-lg" id="nuevoTotalSalida" name="nuevoTotalSalida" placeholder="00000" readonly required>
+
+                              <input type="hidden" name="totalSalida" id="totalSalida">
                             
                             </div>
                           
@@ -167,6 +167,13 @@
             </div>
 
           </form>
+
+          <?php
+
+            $guardarSalida = new ControladorSalidas();
+            $guardarSalida -> ctrCrearSalida();
+
+          ?>
         
         </div>
 
@@ -180,7 +187,7 @@
 
           <div class="box-body">
           
-            <table class="table table-bordered table-striped dt-responsive tablas">
+            <table class="table table-bordered table-striped dt-responsive tablaSalidas">
             
               <thead>
               
@@ -199,7 +206,7 @@
 
               <tbody>
               
-                <tr>
+                <!-- <tr>
                   
                   <th style="width:10px">#</th>
                   <th>Diclofenaco</th>
@@ -216,7 +223,7 @@
                   
                   </th>
 
-                </tr>
+                </tr> -->
               
               </tbody>
             

@@ -49,7 +49,7 @@ class ModeloProductos{
         else{
             return "error";
             /* echo "Error: ".$stmt->errorInfo()[2]; */
-            /* var_dump($stmt) */
+            /* var_dump($stmt); */
         }
 
         $stmt->close();
@@ -101,5 +101,32 @@ class ModeloProductos{
         $stmt = null;
 
     }
+
+    /*=============================================
+	ACTUALIZAR PRODUCTOS
+	=============================================*/
+
+	public static function mdlActualizarProducto($tabla, $item1, $valor1, $valor){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE id = :id");
+
+		$stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+		$stmt -> bindParam(":id", $valor, PDO::PARAM_STR);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 
 }

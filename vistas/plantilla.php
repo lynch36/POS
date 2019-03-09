@@ -77,6 +77,9 @@ session_start();
   <!-- iCheck 1.0.1 -->
   <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 
+  <!-- Number 1.0.1 -->
+  <script src="vistas/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
 </head>
 
 <!--=====================================
@@ -153,6 +156,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/usuarios.js"></script>
 <script src="vistas/js/categorias.js"></script>
 <script src="vistas/js/productos.js"></script>
+<script src="vistas/js/salidas.js"></script>
 
 </body>
 </html>
